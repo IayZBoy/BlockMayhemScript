@@ -1,5 +1,6 @@
 local NEVERLOSE = loadstring(game:HttpGet("https://raw.githubusercontent.com/3345-c-a-t-s-u-s/NEVERLOSE-UI-Nightly/main/source.lua"))()
 local Active = false
+NEVERLOSE:Theme("Dark")
 
 local Window = NEVERLOSE:AddWindow("ZBoy Hub", "Block Mayhem - OP EDITION")
 

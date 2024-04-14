@@ -12,7 +12,7 @@ Section:AddToggle("Enabled", false, function(val)
 end)
 
 while task.wait(5) do
-	if active then
+	if Active then
 	    if workspace:FindFirstChild("Spawn", true) then
 	        for _,v in pairs(workspace:FindFirstChild("Spawn", true):GetDescendants()) do
 	            if v:IsA("ClickDetector") then

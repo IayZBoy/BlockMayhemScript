@@ -10,6 +10,9 @@ local Section = Tab:AddSection("Auto Collect")
 Section:AddToggle("Enabled", false, function(val)
 	Active=val
 end)
+Section:AddButton("Teleport To Middle", function()
+	game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position=workspace:FindFirstChild("Spawn",true).Position+Vector3.new(0,25,0)
+end)
 
 while task.wait(5) do
 	if Active then

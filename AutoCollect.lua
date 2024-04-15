@@ -2,22 +2,8 @@ local NEVERLOSE = loadstring(game:HttpGet("https://raw.githubusercontent.com/334
 local Active = false
 NEVERLOSE:Theme("Dark")
 
-local Window = NEVERLOSE:AddWindow("ZBoy Hub", "Block Mayhem - OP EDITION")
-
-local Tab = Window:AddTab("Main", "earth")
-
-local Section = Tab:AddSection("Auto Collect")
-
-Section:AddToggle("Enabled", false, function(val)
-	Active=val
-end)
-Section:AddButton("Teleport To Middle", function()
-	game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position=workspace:FindFirstChild("Spawn",true).Position+Vector3.new(0,25,0)
-end)
-
-while task.wait(5) do
-	if Active then
-	    if workspace:FindFirstChild("Spawn", true) then
+function CollectBlocks()
+	if workspace:FindFirstChild("Spawn", true) then
 	        for _,v in pairs(workspace:FindFirstChild("Spawn", true):GetDescendants()) do
 	            if v:IsA("ClickDetector") then
 	                local parent = v.Parent
@@ -39,5 +25,23 @@ while task.wait(5) do
 	            end
 	        end
 	    end
+end
+
+local Window = NEVERLOSE:AddWindow("ZBoy Hub", "Block Mayhem - OP EDITION")
+
+local Tab = Window:AddTab("Main", "earth")
+
+local Section = Tab:AddSection("Auto Collect")
+
+Section:AddToggle("Enabled", false, function(val)
+	Active=val
+end)
+Section:AddButton("Force Collect", function()
+	CollectBlocks()
+end)
+
+while task.wait(5) do
+	if Active then
+	    CollectBlocks()
 	end
 end
